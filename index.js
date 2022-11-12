@@ -1,6 +1,7 @@
 const express = require('express');
 var bodyParser = require('body-parser');
 const cors = require('cors');
+require("./config/bd");
 
 //se crea una nueva instancia de express q será nuestra aplicación
 const app = express();
@@ -19,6 +20,7 @@ app.listen(puerto, () => {
 // Cargar ficheros rutas
 
 var cognito = require('./routes/cognito');
+var bebidas = require('./routes/bebidas');
 
 // Middlewares
 app.use(bodyParser.urlencoded({extended : false}));
@@ -29,6 +31,7 @@ app.use(bodyParser.json());
 
 // Añadir prefijos a las rutas / Cargar rutas
 app.use('/api', cognito);
+app.use('/bebidas', bebidas);
 
 // Exportar modulo (fichero actual)
 module.exports = app;
