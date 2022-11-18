@@ -10,7 +10,6 @@ const router = Router();
 
 router.post(
   "/registrar",
-  // nombre, apellido, direccion, email, password
   [
     check("nombre", "El nombre es obligatorio").not().isEmpty(),
     check("apellido", "El apellido es obligatorio").not().isEmpty(),
